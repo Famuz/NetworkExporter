@@ -23,12 +23,12 @@ class Email {
         // Crear el objeto de email
         $mail = new  PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'correo.cnfl.go.cr';
+        $mail->Host = $_ENV['DB_EMAIL_HOST'];
         $mail->SMTPAuth = false;
         //$mail->Port = 2525;
-        $mail->Username = 'juramirez@cnfl.go.cr';
-        $mail->Password = 'Jdjsrrrs14020607';
-        $mail->setFrom('juramirez@cnfl.go.cr');
+        $mail->Username = $_ENV['DB_EMAIL'];
+        $mail->Password = $_ENV['DB_EMAIL_PASS'];
+        $mail->setFrom($_ENV['DB_EMAIL']);
         $mail->addAddress($this->email);
         $mail->Subject = 'Confirma tu cuenta';
 
@@ -55,9 +55,9 @@ class Email {
          $mail->Host = 'correo.cnfl.go.cr';
          $mail->SMTPAuth = false;
          //$mail->Port = 2525;
-         $mail->Username = 'juramirez@cnfl.go.cr';
-         $mail->Password = 'Jdjsrrrs14020607';
-         $mail->setFrom('juramirez@cnfl.go.cr');
+         $mail->Username = $_ENV['DB_EMAIL'];
+         $mail->Password = $_ENV['DB_EMAIL_PASS'];
+         $mail->setFrom($_ENV['DB_EMAIL']);
          $mail->addAddress($this->email);
          $mail->Subject = 'Reestablece tu Password';
  
